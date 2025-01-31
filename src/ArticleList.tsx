@@ -1,39 +1,41 @@
-export default function ArticleList() {
+import { Link, NavLink } from "react-router";
+
+function ArticleList() {
   return (
     <>
       <nav className="navbar navbar-light">
         <div className="container">
-          <a className="navbar-brand" href="/#">
+          <Link className="navbar-brand" to="/">
             conduit
-          </a>
+          </Link>
           <ul className="nav navbar-nav pull-xs-right">
             <li className="nav-item">
               {/* Add "active" class when you're on that page" */}
-              <a className="nav-link active" href="/#">
+              <NavLink className="nav-link active" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#/editor">
+              <NavLink className="nav-link" to="/editor">
                 <i className="ion-compose" />
                 &nbsp;New Article
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#/settings">
+              <NavLink className="nav-link" to="/settings">
                 <i className="ion-gear-a" />
                 &nbsp;Settings
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#/login">
+              <NavLink className="nav-link" to="/login">
                 Sign in
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#/register">
+              <NavLink className="nav-link" to="/register">
                 Sign up
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -53,60 +55,75 @@ export default function ArticleList() {
               <div className="feed-toggle">
                 <ul className="nav nav-pills outline-active">
                   <li className="nav-item">
-                    <a className="nav-link disabled" href="">
+                    <Link className="nav-link disabled" to="/">
                       Your Feed
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link active" href="">
+                    <Link className="nav-link active" to="/">
                       Global Feed
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
 
               <div className="article-preview">
                 <div className="article-meta">
-                  <a href="/#/profile/ericsimmons">
-                    <img src="http://i.imgur.com/Qr71crq.jpg" />
-                  </a>
+                  <Link to="/profile/ericsimmons">
+                    <img
+                      src="http://i.imgur.com/Qr71crq.jpg"
+                      alt="photo of the user"
+                    />
+                  </Link>
                   <div className="info">
-                    <a href="/#/profile/ericsimmons" className="author">
+                    <Link to="/profile/ericsimmons" className="author">
                       Eric Simons
-                    </a>
+                    </Link>
                     <span className="date">January 20th</span>
                   </div>
                   <button className="btn btn-outline-primary btn-sm pull-xs-right">
                     <i className="ion-heart" /> 29
                   </button>
                 </div>
-                <a href="/#/how-to-build-webapps-that-scale" className="preview-link">
+                <Link
+                  to="/how-to-build-webapps-that-scale"
+                  className="preview-link"
+                >
                   <h1>How to build webapps that scale</h1>
                   <p>This is the description for the post.</p>
                   <span>Read more...</span>
-                </a>
+                </Link>
               </div>
 
               <div className="article-preview">
                 <div className="article-meta">
-                  <a href="/#/profile/albertpai">
-                    <img src="http://i.imgur.com/N4VcUeJ.jpg" />
-                  </a>
+                  <Link to="/profile/albertpai">
+                    <img
+                      src="http://i.imgur.com/N4VcUeJ.jpg"
+                      alt="photo of the user"
+                    />
+                  </Link>
                   <div className="info">
-                    <a href="/#/profile/albertpai" className="author">
+                    <Link to="/profile/albertpai" className="author">
                       Albert Pai
-                    </a>
+                    </Link>
                     <span className="date">January 20th</span>
                   </div>
                   <button className="btn btn-outline-primary btn-sm pull-xs-right">
                     <i className="ion-heart" /> 32
                   </button>
                 </div>
-                <a href="/#/the-song-you-wont-ever-stop-singing" className="preview-link">
-                  <h1>The song you won&lsquo;t ever stop singing. No matter how hard you try.</h1>
+                <Link
+                  to="/#/the-song-you-wont-ever-stop-singing"
+                  className="preview-link"
+                >
+                  <h1>
+                    The song you won&lsquo;t ever stop singing. No matter how
+                    hard you try.
+                  </h1>
                   <p>This is the description for the post.</p>
                   <span>Read more...</span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -148,11 +165,12 @@ export default function ArticleList() {
 
       <footer>
         <div className="container">
-          <a href="/#" className="logo-font">
+          <Link to="/" className="logo-font">
             conduit
-          </a>
+          </Link>
           <span className="attribution">
-            An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
+            An interactive learning project from{" "}
+            <Link to="https://thinkster.io">Thinkster</Link>. Code &amp; design
             licensed under MIT.
           </span>
         </div>
@@ -160,3 +178,5 @@ export default function ArticleList() {
     </>
   );
 }
+
+export { ArticleList };

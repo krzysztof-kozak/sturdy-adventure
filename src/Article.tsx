@@ -1,4 +1,6 @@
-export default function Article() {
+import { Link } from "react-router";
+
+function Article() {
   return (
     <>
       <nav className="navbar navbar-light">
@@ -14,10 +16,10 @@ export default function Article() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#/editor">
+              <Link className="nav-link" to="/editor">
                 <i className="ion-compose" />
                 &nbsp;New Article
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/#/settings">
@@ -70,9 +72,15 @@ export default function Article() {
         <div className="container page">
           <div className="row article-content">
             <div className="col-md-12">
-              <p>Web development technologies have evolved at an incredible clip over the past few years.</p>
+              <p>
+                Web development technologies have evolved at an incredible clip
+                over the past few years.
+              </p>
               <h2 id="introducing-ionic">Introducing RealWorld.</h2>
-              <p>It&lsquo;s a great solution for learning how other frameworks work.</p>
+              <p>
+                It&lsquo;s a great solution for learning how other frameworks
+                work.
+              </p>
             </div>
           </div>
 
@@ -105,21 +113,36 @@ export default function Article() {
             <div className="col-xs-12 col-md-8 offset-md-2">
               <form className="card comment-form">
                 <div className="card-block">
-                  <textarea className="form-control" placeholder="Write a comment..." rows={3} />
+                  <textarea
+                    className="form-control"
+                    placeholder="Write a comment..."
+                    rows={3}
+                  />
                 </div>
                 <div className="card-footer">
-                  <img src="http://i.imgur.com/Qr71crq.jpg" className="comment-author-img" />
-                  <button className="btn btn-sm btn-primary">Post Comment</button>
+                  <img
+                    src="http://i.imgur.com/Qr71crq.jpg"
+                    className="comment-author-img"
+                  />
+                  <button className="btn btn-sm btn-primary">
+                    Post Comment
+                  </button>
                 </div>
               </form>
 
               <div className="card">
                 <div className="card-block">
-                  <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <p className="card-text">
+                    With supporting text below as a natural lead-in to
+                    additional content.
+                  </p>
                 </div>
                 <div className="card-footer">
                   <a href="/#/profile/jacobschmidt" className="comment-author">
-                    <img src="http://i.imgur.com/Qr71crq.jpg" className="comment-author-img" />
+                    <img
+                      src="http://i.imgur.com/Qr71crq.jpg"
+                      className="comment-author-img"
+                    />
                   </a>
                   &nbsp;
                   <a href="/#/profile/jacobschmidt" className="comment-author">
@@ -131,11 +154,17 @@ export default function Article() {
 
               <div className="card">
                 <div className="card-block">
-                  <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <p className="card-text">
+                    With supporting text below as a natural lead-in to
+                    additional content.
+                  </p>
                 </div>
                 <div className="card-footer">
                   <a href="/#/profile/jacobschmidt" className="comment-author">
-                    <img src="http://i.imgur.com/Qr71crq.jpg" className="comment-author-img" />
+                    <img
+                      src="http://i.imgur.com/Qr71crq.jpg"
+                      className="comment-author-img"
+                    />
                   </a>
                   &nbsp;
                   <a href="/#/profile/jacobschmidt" className="comment-author">
@@ -159,7 +188,8 @@ export default function Article() {
             conduit
           </a>
           <span className="attribution">
-            An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
+            An interactive learning project from{" "}
+            <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
             licensed under MIT.
           </span>
         </div>
@@ -167,3 +197,5 @@ export default function Article() {
     </>
   );
 }
+
+export { Article };

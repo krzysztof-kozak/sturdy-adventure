@@ -1,4 +1,4 @@
-export default function Editor() {
+function Editor() {
   return (
     <>
       <nav className="navbar navbar-light">
@@ -46,19 +46,38 @@ export default function Editor() {
               <form>
                 <fieldset>
                   <fieldset className="form-group">
-                    <input type="text" className="form-control form-control-lg" placeholder="Article Title" />
+                    <input
+                      type="text"
+                      className="form-control form-control-lg"
+                      placeholder="Article Title"
+                    />
                   </fieldset>
                   <fieldset className="form-group">
-                    <input type="text" className="form-control" placeholder="What's this article about?" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="What's this article about?"
+                    />
                   </fieldset>
                   <fieldset className="form-group">
-                    <textarea className="form-control" rows={8} placeholder="Write your article (in markdown)" />
+                    <textarea
+                      className="form-control"
+                      rows={8}
+                      placeholder="Write your article (in markdown)"
+                    />
                   </fieldset>
                   <fieldset className="form-group">
-                    <input type="text" className="form-control" placeholder="Enter tags" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter tags"
+                    />
                     <div className="tag-list" />
                   </fieldset>
-                  <button className="btn btn-lg pull-xs-right btn-primary" type="button">
+                  <button
+                    className="btn btn-lg pull-xs-right btn-primary"
+                    type="button"
+                  >
                     Publish Article
                   </button>
                 </fieldset>
@@ -74,7 +93,8 @@ export default function Editor() {
             conduit
           </a>
           <span className="attribution">
-            An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
+            An interactive learning project from{" "}
+            <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
             licensed under MIT.
           </span>
         </div>
@@ -82,3 +102,5 @@ export default function Editor() {
     </>
   );
 }
+
+export { Editor };

@@ -1,4 +1,4 @@
-export default function Profile() {
+function Profile() {
   return (
     <>
       <nav className="navbar navbar-light">
@@ -44,11 +44,14 @@ export default function Profile() {
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-md-10 offset-md-1">
-                <img src="http://i.imgur.com/Qr71crq.jpg" className="user-img" />
+                <img
+                  src="http://i.imgur.com/Qr71crq.jpg"
+                  className="user-img"
+                />
                 <h4>Eric Simons</h4>
                 <p>
-                  Cofounder @GoThinkster, lived in Aol&lsquo;s HQ for a few months, kinda looks like Peeta from the
-                  Hunger Games
+                  Cofounder @GoThinkster, lived in Aol&lsquo;s HQ for a few
+                  months, kinda looks like Peeta from the Hunger Games
                 </p>
                 <button className="btn btn-sm btn-outline-secondary action-btn">
                   <i className="ion-plus-round" />
@@ -92,7 +95,10 @@ export default function Profile() {
                     <i className="ion-heart" /> 29
                   </button>
                 </div>
-                <a href="/#/how-to-build-webapps-that-scale" className="preview-link">
+                <a
+                  href="/#/how-to-build-webapps-that-scale"
+                  className="preview-link"
+                >
                   <h1>How to build webapps that scale</h1>
                   <p>This is the description for the post.</p>
                   <span>Read more...</span>
@@ -114,8 +120,14 @@ export default function Profile() {
                     <i className="ion-heart" /> 32
                   </button>
                 </div>
-                <a href="/#/the-song-you-wont-ever-stop-singing" className="preview-link">
-                  <h1>The song you won&lsquo;t ever stop singing. No matter how hard you try.</h1>
+                <a
+                  href="/#/the-song-you-wont-ever-stop-singing"
+                  className="preview-link"
+                >
+                  <h1>
+                    The song you won&lsquo;t ever stop singing. No matter how
+                    hard you try.
+                  </h1>
                   <p>This is the description for the post.</p>
                   <span>Read more...</span>
                   <ul className="tag-list">
@@ -135,7 +147,8 @@ export default function Profile() {
             conduit
           </a>
           <span className="attribution">
-            An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
+            An interactive learning project from{" "}
+            <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
             licensed under MIT.
           </span>
         </div>
@@ -143,3 +156,5 @@ export default function Profile() {
     </>
   );
 }
+
+export { Profile };
