@@ -3,6 +3,8 @@ import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 
+import "./styles.css";
+
 const root = document.getElementById("root") as HTMLElement;
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

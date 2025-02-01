@@ -14,6 +14,16 @@ const ArticlePreviewSchema = z.object({
   slug: z.string(),
 });
 
+const ArticleSchema = z.object({
+  title: z.string(),
+  body: z.string(),
+  createdAt: z.coerce.date(),
+  author: BaseAuthorSchema,
+  favoritesCount: z.number(),
+});
+
+const SlugQueryParamSchema = z.string();
+
 const ListOfArticlesSchema = z.array(ArticlePreviewSchema);
 
-export { ArticlePreviewSchema, ListOfArticlesSchema };
+export { ArticlePreviewSchema, ListOfArticlesSchema, ArticleSchema, SlugQueryParamSchema };

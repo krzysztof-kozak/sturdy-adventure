@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import { Article } from "./Article";
+import { Article } from "./features/Article/Article";
 import { Home } from "./Home";
 import { Editor } from "./Editor";
 import { LoginRegister } from "./LoginRegister";
