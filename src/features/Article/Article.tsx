@@ -22,76 +22,24 @@ function Article() {
   }
 
   return (
-    <>
-      <nav className="navbar navbar-light">
-        <div className="container">
-          <Link className="navbar-brand" to="/">
-            conduit
-          </Link>
-          <ul className="nav navbar-nav pull-xs-right">
-            <li className="nav-item">
-              {/* Add "active" class when you're on that page" */}
-              <Link className="nav-link active" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/editor">
-                <i className="ion-compose" />
-                &nbsp;New Article
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/settings">
-                <i className="ion-gear-a" />
-                &nbsp;Settings
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Sign in
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Sign up
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <div className="article-page">
+      <ArticleBanner
+        title={data.title}
+        author={data.author}
+        createdAt={data.createdAt}
+        favoritesCount={data.favoritesCount}
+      />
 
-      <div className="article-page">
-        <ArticleBanner
-          title={data.title}
-          author={data.author}
-          createdAt={data.createdAt}
-          favoritesCount={data.favoritesCount}
-        />
+      <div className="container page">
+        <ArticleContent body={data.body} />
 
-        <div className="container page">
-          <ArticleContent body={data.body} />
+        <hr />
 
-          <hr />
+        <ArticleActions author={data.author} createdAt={data.createdAt} favoritesCount={data.favoritesCount} />
 
-          <ArticleActions author={data.author} createdAt={data.createdAt} favoritesCount={data.favoritesCount} />
-
-          <ArticleCommentSection />
-        </div>
+        <ArticleCommentSection />
       </div>
-
-      <footer>
-        <div className="container">
-          <Link to="/" className="logo-font">
-            conduit
-          </Link>
-          <span className="attribution">
-            An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design
-            licensed under MIT.
-          </span>
-        </div>
-      </footer>
-    </>
+    </div>
   );
 }
 
