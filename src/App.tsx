@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import { Article } from "./features/Article/Article";
 import { Home } from "./Home";
+
+import { Article } from "./features/Article/Article";
+import { Profile } from "./features/Profile/Profile";
+
 import { Editor } from "./Editor";
 import { LoginRegister } from "./LoginRegister";
 import { Logout } from "./Logout";
-import { Profile } from "./Profile";
 import { Settings } from "./Settings";
 import { HomeLayout } from "layouts/HomeLayout";
 

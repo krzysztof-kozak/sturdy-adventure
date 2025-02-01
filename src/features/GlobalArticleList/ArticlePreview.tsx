@@ -29,7 +29,7 @@ function ArticlePreview({ title, description, author, createdAt, favoritesCount,
         </button>
       </div>
 
-      <Link to={slug} className="preview-link">
+      <Link to={`/${slug}`} className="preview-link">
         <h1>{title}</h1>
         <p>{description}.</p>
         <span>Read more...</span>

@@ -22,8 +22,22 @@ const ArticleSchema = z.object({
   favoritesCount: z.number(),
 });
 
+const ProfileSchema = z.object({
+  username: z.string(),
+  bio: z.string(),
+  image: z.string(),
+});
+
 const SlugQueryParamSchema = z.string();
+const UsernameQueryParamSchema = z.string();
 
 const ListOfArticlesSchema = z.array(ArticlePreviewSchema);
 
-export { ArticlePreviewSchema, ListOfArticlesSchema, ArticleSchema, SlugQueryParamSchema };
+export {
+  ArticlePreviewSchema,
+  ListOfArticlesSchema,
+  ArticleSchema,
+  ProfileSchema,
+  SlugQueryParamSchema,
+  UsernameQueryParamSchema,
+};
