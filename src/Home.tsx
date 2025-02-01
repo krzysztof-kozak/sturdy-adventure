@@ -1,6 +1,7 @@
+import { ArticleList } from "features/ArticleFeed/ArticleList";
 import { Link, NavLink } from "react-router";
 
-function ArticleList() {
+function Home() {
   return (
     <>
       <nav className="navbar navbar-light">
@@ -67,64 +68,7 @@ function ArticleList() {
                 </ul>
               </div>
 
-              <div className="article-preview">
-                <div className="article-meta">
-                  <Link to="/profile/ericsimmons">
-                    <img
-                      src="http://i.imgur.com/Qr71crq.jpg"
-                      alt="photo of the user"
-                    />
-                  </Link>
-                  <div className="info">
-                    <Link to="/profile/ericsimmons" className="author">
-                      Eric Simons
-                    </Link>
-                    <span className="date">January 20th</span>
-                  </div>
-                  <button className="btn btn-outline-primary btn-sm pull-xs-right">
-                    <i className="ion-heart" /> 29
-                  </button>
-                </div>
-                <Link
-                  to="/how-to-build-webapps-that-scale"
-                  className="preview-link"
-                >
-                  <h1>How to build webapps that scale</h1>
-                  <p>This is the description for the post.</p>
-                  <span>Read more...</span>
-                </Link>
-              </div>
-
-              <div className="article-preview">
-                <div className="article-meta">
-                  <Link to="/profile/albertpai">
-                    <img
-                      src="http://i.imgur.com/N4VcUeJ.jpg"
-                      alt="photo of the user"
-                    />
-                  </Link>
-                  <div className="info">
-                    <Link to="/profile/albertpai" className="author">
-                      Albert Pai
-                    </Link>
-                    <span className="date">January 20th</span>
-                  </div>
-                  <button className="btn btn-outline-primary btn-sm pull-xs-right">
-                    <i className="ion-heart" /> 32
-                  </button>
-                </div>
-                <Link
-                  to="/#/the-song-you-wont-ever-stop-singing"
-                  className="preview-link"
-                >
-                  <h1>
-                    The song you won&lsquo;t ever stop singing. No matter how
-                    hard you try.
-                  </h1>
-                  <p>This is the description for the post.</p>
-                  <span>Read more...</span>
-                </Link>
-              </div>
+              <ArticleList />
             </div>
 
             <div className="col-md-3">
@@ -132,28 +76,28 @@ function ArticleList() {
                 <p>Popular Tags</p>
 
                 <div className="tag-list">
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     programming
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     javascript
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     emberjs
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     angularjs
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     react
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     mean
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     node
                   </a>
-                  <a href="" className="tag-pill tag-default">
+                  <a href="/" className="tag-pill tag-default">
                     rails
                   </a>
                 </div>
@@ -169,8 +113,7 @@ function ArticleList() {
             conduit
           </Link>
           <span className="attribution">
-            An interactive learning project from{" "}
-            <Link to="https://thinkster.io">Thinkster</Link>. Code &amp; design
+            An interactive learning project from <Link to="https://thinkster.io">Thinkster</Link>. Code &amp; design
             licensed under MIT.
           </span>
         </div>
@@ -179,4 +122,4 @@ function ArticleList() {
   );
 }
 
-export { ArticleList };
+export { Home };

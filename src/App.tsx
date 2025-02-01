@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
 import { Article } from "./Article";
-import { ArticleList } from "./ArticleList";
+import { Home } from "./Home";
 import { Editor } from "./Editor";
 import { LoginRegister } from "./LoginRegister";
 import { Logout } from "./Logout";
@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ArticleList />} />
+        <Route path="/" element={<Home />} />
         <Route path="/:slug" element={<Article />} />
         <Route path="/editor" element={<Editor />} />
         <Route path="/editor/:slug" element={<Editor />} />

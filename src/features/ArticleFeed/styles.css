@@ -1,0 +1,10 @@
+.author-image-fallback {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #5cb85c;
+  border-radius: 100%;
+  display: inline-grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
