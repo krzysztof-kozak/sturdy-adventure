@@ -1,4 +1,4 @@
-import { ArticleList } from "features/ArticleFeed/ArticleList";
+import { ArticleList } from "features/GlobalArticleList/ArticleList";
 import { Link, NavLink } from "react-router";
 
 function Home() {
