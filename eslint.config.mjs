@@ -7,6 +7,7 @@ import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import testingLibraryPlugin from "eslint-plugin-testing-library";
 import typescriptPlugin from "typescript-eslint";
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
 import { fixupPluginRules } from "@eslint/compat";
 
@@ -20,6 +21,7 @@ export default typescriptPlugin.config(
     extends: [
       eslintPlugin.configs.recommended,
       reactPlugin.configs.flat.recommended,
+      pluginQuery.configs['flat/recommended'],
       prettierRecommendedPlugin,
       compatPlugin.configs["flat/recommended"],
     ],
