@@ -36,21 +36,21 @@ function App() {
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />}>
             <Route index element={<GlobalFeedArticleList />} />
+
+            <Route path="feed">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <UserFeedArticleList />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
           </Route>
 
           <Route path="/articles">
             <Route path=":slug" element={<Article />} />
-          </Route>
-
-          <Route path="feed">
-            <Route
-              index
-              element={
-                <ProtectedRoute>
-                  <UserFeedArticleList />
-                </ProtectedRoute>
-              }
-            />
           </Route>
 
           <Route path="/editor" element={<Editor />} />
