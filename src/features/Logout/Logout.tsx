@@ -1,5 +1,5 @@
 function Logout() {
-  return <button>sign out</button>;
+  return <p>Logging out...</p>;
 }
 
 export { Logout };

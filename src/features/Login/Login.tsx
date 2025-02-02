@@ -1,4 +1,4 @@
-function LoginRegister() {
+function Login() {
   return (
     <div className="auth-page">
       <div className="container page">
@@ -32,4 +32,4 @@ function LoginRegister() {
   );
 }
 
-export { LoginRegister };
+export { Login };
