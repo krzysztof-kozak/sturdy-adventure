@@ -2194,13 +2194,6 @@
   resolved "https://registry.yarnpkg.com/@tanstack/store/-/store-0.7.0.tgz#afef29b06c6b592e93181cee9baa62fe77454459"
   integrity sha512-CNIhdoUsmD2NolYuaIs8VfWM467RK6oIBAW4nPEKZhg1smZ+/CwtCdpURgp7nxSqOaV9oKkzdWD80+bC66F/Jg==
 
-"@tanstack/zod-form-adapter@^0.41.3":
-  version "0.41.3"
-  resolved "https://registry.yarnpkg.com/@tanstack/zod-form-adapter/-/zod-form-adapter-0.41.3.tgz#6203cad5e272dbfa8c0892506fd403794a5f00bf"
-  integrity sha512-7BUTtRmmLfwWzBnlD0+wWqtlbqU5oAIjo4QK85iAyjilkz1HfVDXU7DyYiGRvU3+/cpEQYytKGGKB5oWNh5t0g==
-  dependencies:
-    "@tanstack/form-core" "0.41.3"
-
 "@testing-library/dom@^10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-10.4.0.tgz#82a9d9462f11d240ecadbf406607c6ceeeff43a8"
