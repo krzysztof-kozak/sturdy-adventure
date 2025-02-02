@@ -14,6 +14,8 @@ const ArticlePreviewSchema = z.object({
   slug: z.string(),
 });
 
+const ListOfArticlesSchema = z.array(ArticlePreviewSchema);
+
 const ArticleSchema = z.object({
   title: z.string(),
   body: z.string(),
@@ -28,16 +30,22 @@ const ProfileSchema = z.object({
   image: z.string(),
 });
 
+const UserLoginSchema = z.object({
+  user: z.object({
+    email: z.string().email(),
+    password: z.string(),
+  }),
+});
+
 const SlugQueryParamSchema = z.string();
 const UsernameQueryParamSchema = z.string();
-
-const ListOfArticlesSchema = z.array(ArticlePreviewSchema);
 
 export {
   ArticlePreviewSchema,
   ListOfArticlesSchema,
   ArticleSchema,
   ProfileSchema,
+  UserLoginSchema,
   SlugQueryParamSchema,
   UsernameQueryParamSchema,
 };
