@@ -1,5 +1,4 @@
-import { ArticleList } from "features/GlobalArticleList/ArticleList";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 
 function Home() {
   return (
@@ -29,7 +28,7 @@ function Home() {
               </ul>
             </div>
 
-            <ArticleList />
+            <Outlet />
           </div>
 
           <div className="col-md-3">
