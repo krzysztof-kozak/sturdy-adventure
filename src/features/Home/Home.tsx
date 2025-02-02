@@ -1,6 +1,9 @@
+import { useAuth } from "features/Auth/Auth";
 import { Link, Outlet } from "react-router";
 
 function Home() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className="home-page">
       <div className="banner">
@@ -16,12 +19,12 @@ function Home() {
             <div className="feed-toggle">
               <ul className="nav nav-pills outline-active">
                 <li className="nav-item">
-                  <Link className="nav-link disabled" to="/">
+                  <Link className={`nav-link${isAuthenticated ? " disabled" : " active"}`} to="/">
                     Your Feed
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/">
+                  <Link className={`nav-link${isAuthenticated ? " active" : ""}`} to="/">
                     Global Feed
                   </Link>
                 </li>

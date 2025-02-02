@@ -42,7 +42,10 @@ function AuthProvider({ children }: AuthProviderProps) {
   }
 
   useEffect(() => {
-    if (!JWT) return;
+    if (!JWT) {
+      apiClient.interceptors.request.clear();
+    }
+
     apiClient.interceptors.request.use(memoizedOnFullfilledRequest, onRejectedRequest);
   }, [JWT, memoizedOnFullfilledRequest]);
 
