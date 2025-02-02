@@ -1,10 +1,12 @@
+import { apiClient } from "api/apiClient";
+import type { AxiosError, InternalAxiosRequestConfig } from "axios";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 type JWT = string | undefined;
-type setJWT = Dispatch<SetStateAction<string | undefined>>;
+type SetJWT = Dispatch<SetStateAction<string | undefined>>;
 
-type AuthContextValue = { JWT: JWT; setJWT: setJWT } | undefined;
+type AuthContextValue = { JWT: JWT; setJWT: SetJWT } | undefined;
 
 const AuthContext = createContext<AuthContextValue>(undefined);
 
@@ -24,6 +26,25 @@ type AuthProviderProps = {
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [JWT, setJWT] = useState<string>();
+
+  const memoizedOnFullfilledRequest = useCallback(
+    function onFullfilledRequest(config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
+      if (JWT) {
+        config.headers.Authorization = "Token " + JWT;
+      }
+      return config;
+    },
+    [JWT]
+  );
+
+  function onRejectedRequest(error: AxiosError): Promise<AxiosError> {
+    return Promise.reject(error);
+  }
+
+  useEffect(() => {
+    if (!JWT) return;
+    apiClient.interceptors.request.use(memoizedOnFullfilledRequest, onRejectedRequest);
+  }, [JWT, memoizedOnFullfilledRequest]);
 
   const memoizedValue = useMemo(() => {
     return { JWT, setJWT };

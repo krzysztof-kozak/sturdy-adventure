@@ -8,12 +8,15 @@ import "./styles.css";
 const root = document.getElementById("root") as HTMLElement;
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AuthProvider } from "features/Auth/Auth";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(root).render(
   <QueryClientProvider client={queryClient}>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </QueryClientProvider>
 );
 

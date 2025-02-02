@@ -30,11 +30,15 @@ const ProfileSchema = z.object({
   image: z.string(),
 });
 
-const UserLoginSchema = z.object({
+const UserLoginRequestSchema = z.object({
   user: z.object({
     email: z.string().email(),
     password: z.string(),
   }),
+});
+
+const UserLoginResponseSchema = z.object({
+  data: z.object({ user: z.object({ token: z.string() }) }),
 });
 
 const SlugQueryParamSchema = z.string();
@@ -45,7 +49,8 @@ export {
   ListOfArticlesSchema,
   ArticleSchema,
   ProfileSchema,
-  UserLoginSchema,
+  UserLoginRequestSchema,
+  UserLoginResponseSchema,
   SlugQueryParamSchema,
   UsernameQueryParamSchema,
 };
