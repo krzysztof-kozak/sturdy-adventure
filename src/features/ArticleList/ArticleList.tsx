@@ -1,5 +1,6 @@
 import { useGetArticleList } from "api/hooks/useGetArticleList";
 import { ArticlePreview } from "./ArticlePreview";
+import { ArticleListEmptyState } from "./EmptyState";
 
 function ArticleList() {
   const { isPending, isError, data, error } = useGetArticleList();
@@ -10,6 +11,10 @@ function ArticleList() {
 
   if (isError) {
     return <p>{error.message}</p>;
+  }
+
+  if (data.length < 1) {
+    return <ArticleListEmptyState />;
   }
 
   return data.map(article => {

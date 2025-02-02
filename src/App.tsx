@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import { Home } from "./Home";
+import { Home } from "./features/Home/Home";
 
 import { Article } from "./features/Article/Article";
 import { Profile } from "./features/Profile/Profile";
 
-import { Editor } from "./Editor";
+import { Editor } from "./features/Editor/Editor";
 import { Login } from "./features/Login/Login";
 import { Logout } from "./features/Logout/Logout";
-import { Settings } from "./Settings";
+import { Settings } from "./features/Settings/Settings";
 import { HomeLayout } from "layouts/HomeLayout";
 import { ArticleList } from "features/ArticleList/ArticleList";
 import { NotFound } from "features/404/NotFound";

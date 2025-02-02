@@ -86,6 +86,7 @@ export default typescriptPlugin.config(
       "react/display-name": ["off"],
       "react/prop-types": ["off"],
       "react/jsx-no-constructed-context-values": ["error"],
+      "react/no-unescaped-entities": ["off"],
       eqeqeq: ["error"],
       "no-console": ["error", { allow: ["error", "debug"] }],
     },
