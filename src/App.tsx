@@ -12,6 +12,7 @@ import { Settings } from "./Settings";
 import { HomeLayout } from "layouts/HomeLayout";
 import { ArticleList } from "features/GlobalArticleList/ArticleList";
 import { NotFound } from "features/404/NotFound";
+import { NotImplemented } from "features/NotImplemented/NotImplemented";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+
+          <Route path="/register" element={<NotImplemented />} />
 
           <Route path="/profile/:username" element={<Profile />} />
           <Route path="/profile/:username/favorites" element={<Profile />} />

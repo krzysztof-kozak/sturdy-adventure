@@ -9,7 +9,8 @@
   font-size: 1.25rem;
 }
 
-.not-found {
+.not-found,
+.not-implemented {
   margin-top: 2rem;
   text-align: center;
 }
