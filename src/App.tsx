@@ -10,7 +10,7 @@ import { Login } from "./features/Login/Login";
 import { Logout } from "./features/Logout/Logout";
 import { Settings } from "./Settings";
 import { HomeLayout } from "layouts/HomeLayout";
-import { ArticleList } from "features/GlobalArticleList/ArticleList";
+import { ArticleList } from "features/ArticleList/ArticleList";
 import { NotFound } from "features/404/NotFound";
 import { NotImplemented } from "features/NotImplemented/NotImplemented";
 
