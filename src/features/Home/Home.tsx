@@ -1,8 +1,12 @@
+import { clsx } from "clsx";
+
+import { Link, Outlet, useLocation } from "react-router";
 import { useAuth } from "features/Auth/Auth";
-import { Link, Outlet } from "react-router";
 
 function Home() {
   const { isAuthenticated } = useAuth();
+  const { pathname } = useLocation();
+  const isOnHomePage = pathname === "/";
 
   return (
     <div className="home-page">
@@ -19,13 +23,13 @@ function Home() {
             <div className="feed-toggle">
               <ul className="nav nav-pills outline-active">
                 <li className="nav-item">
-                  <Link className={`nav-link${isAuthenticated ? " disabled" : " active"}`} to="/">
+                  <Link className={clsx("nav-link", { disabled: !isAuthenticated })} to="/feed">
                     Your Feed
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link${isAuthenticated ? " active" : ""}`} to="/">
-                    Global Feed
+                  <Link className={clsx("nav-link", { active: isOnHomePage })} to="/">
+                    Global feed
                   </Link>
                 </li>
               </ul>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 
 import { Home } from "./features/Home/Home";
 
@@ -10,9 +10,24 @@ import { Login } from "./features/Login/Login";
 import { Logout } from "./features/Logout/Logout";
 import { Settings } from "./features/Settings/Settings";
 import { HomeLayout } from "layouts/HomeLayout";
-import { ArticleList } from "features/ArticleList/ArticleList";
+import { GlobalFeedArticleList } from "features/GlobalFeed/GlobalFeedArticleList";
 import { NotFound } from "features/404/NotFound";
 import { NotImplemented } from "features/NotImplemented/NotImplemented";
+import { UserFeedArticleList } from "features/UserFeed/UserFeedArticleList";
+import type { ReactNode } from "react";
+import { useAuth } from "features/Auth/Auth";
+
+type ProtectedRouteProps = { children: ReactNode };
+
+function ProtectedRoute({ children }: ProtectedRouteProps) {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace={true} />;
+  }
+
+  return children;
+}
 
 function App() {
   return (
@@ -20,11 +35,22 @@ function App() {
       <Routes>
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />}>
-            <Route index element={<ArticleList />} />
+            <Route index element={<GlobalFeedArticleList />} />
           </Route>
 
           <Route path="/articles">
             <Route path=":slug" element={<Article />} />
+          </Route>
+
+          <Route path="feed">
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <UserFeedArticleList />
+                </ProtectedRoute>
+              }
+            />
           </Route>
 
           <Route path="/editor" element={<Editor />} />

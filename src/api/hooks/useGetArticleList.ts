@@ -1,13 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { apiClient } from "api/apiClient";
 import { ListOfArticlesSchema } from "api/schemas";
-import { useAuth } from "features/Auth/Auth";
 
-function useGetArticleList() {
-  const { isAuthenticated } = useAuth();
+type url = "/articles" | "/articles/feed";
 
-  const url = isAuthenticated ? "/articles/feed" : "/articles";
-
+function useGetArticles(url: url) {
   return useQuery({
     queryKey: ["articles", url],
     queryFn: async () => {
@@ -20,4 +17,4 @@ function useGetArticleList() {
   });
 }
 
-export { useGetArticleList };
+export { useGetArticles };

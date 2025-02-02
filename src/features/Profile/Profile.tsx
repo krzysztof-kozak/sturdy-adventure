@@ -2,7 +2,7 @@ import { useGetArticleListByAuthor } from "api/hooks/useGetArticleListByAuthor";
 import { useGetProfile } from "api/hooks/useGetProfile";
 import { UsernameQueryParamSchema } from "api/schemas";
 import { UserImage } from "components/UserImage";
-import { ArticlePreview } from "features/ArticleList/ArticlePreview";
+import { ArticlePreview } from "components/ArticlePreview";
 import { NavLink, useParams } from "react-router";
 
 function Profile() {
