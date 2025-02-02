@@ -6,7 +6,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 type JWT = string | undefined;
 type SetJWT = Dispatch<SetStateAction<string | undefined>>;
 
-type AuthContextValue = { JWT: JWT; setJWT: SetJWT } | undefined;
+type AuthContextValue = { JWT: JWT; setJWT: SetJWT; isAuthenticated: boolean } | undefined;
 
 const AuthContext = createContext<AuthContextValue>(undefined);
 
@@ -47,7 +47,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   }, [JWT, memoizedOnFullfilledRequest]);
 
   const memoizedValue = useMemo(() => {
-    return { JWT, setJWT };
+    return { JWT, setJWT, isAuthenticated: Boolean(JWT && JWT.length > 0) };
   }, [JWT]);
 
   return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
