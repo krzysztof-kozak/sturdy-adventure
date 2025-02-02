@@ -84,6 +84,8 @@ export default typescriptPlugin.config(
       "react/no-array-index-key": ["error"],
       "react/no-unstable-nested-components": ["error"],
       "react/display-name": ["off"],
+      "react/prop-types": ["off"],
+      "react/jsx-no-constructed-context-values": ["error"],
       eqeqeq: ["error"],
       "no-console": ["error", { allow: ["error", "debug"] }],
     },
