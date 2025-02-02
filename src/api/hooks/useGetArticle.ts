@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import { apiClient } from "api/apiClient";
 import { ArticleSchema } from "api/schemas";
-import axios from "axios";
 
 function useGetArticle(slug: string) {
   return useQuery({
     queryKey: ["article", slug],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:3000/api/articles/" + slug);
+      const response = await apiClient.get("/articles/" + slug);
       return response.data;
     },
     select: data => {
