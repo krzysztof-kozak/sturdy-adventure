@@ -5,8 +5,10 @@ import { useAuth } from "features/Auth/Auth";
 
 function Home() {
   const { isAuthenticated } = useAuth();
+
   const { pathname } = useLocation();
   const isOnHomePage = pathname === "/";
+  const isOnFeedPage = pathname === "/feed";
 
   return (
     <div className="home-page">
@@ -23,7 +25,7 @@ function Home() {
             <div className="feed-toggle">
               <ul className="nav nav-pills outline-active">
                 <li className="nav-item">
-                  <Link className={clsx("nav-link", { disabled: !isAuthenticated })} to="/feed">
+                  <Link className={clsx("nav-link", { active: isOnFeedPage, disabled: !isAuthenticated })} to="/feed">
                     Your Feed
                   </Link>
                 </li>
