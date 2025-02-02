@@ -17,8 +17,10 @@
     "test": "react-scripts test"
   },
   "dependencies": {
+    "@tanstack/react-form": "^0.41.3",
     "@tanstack/react-query": "^5.66.0",
     "@tanstack/react-query-devtools": "^5.66.0",
+    "@tanstack/zod-form-adapter": "^0.41.3",
     "@types/react-dom": "18.3.0",
     "axios": "^1.7.9",
     "dompurify": "^3.2.4",
