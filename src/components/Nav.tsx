@@ -1,3 +1,4 @@
+import { useAuth } from "features/Auth/Auth";
 import { NavLink } from "react-router";
 
 function Nav() {
@@ -25,19 +26,45 @@ function Nav() {
               &nbsp;Settings
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">
-              Sign in
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/register">
-              Sign up
-            </NavLink>
-          </li>
+
+          <AuthActions />
         </ul>
       </div>
     </nav>
+  );
+}
+
+function AuthActions() {
+  const { isAuthenticated } = useAuth();
+
+  if (isAuthenticated) {
+    return (
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/logout">
+          Logout
+        </NavLink>
+      </li>
+    );
+  }
+
+  return (
+    <>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/login">
+          Sign in
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/register">
+          Sign up
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/login">
+          Sign in
+        </NavLink>
+      </li>{" "}
+    </>
   );
 }
 
