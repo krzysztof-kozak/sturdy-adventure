@@ -59,11 +59,6 @@ function AuthActions() {
           Sign up
         </NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/login">
-          Sign in
-        </NavLink>
-      </li>{" "}
     </>
   );
 }

@@ -1,5 +1,5 @@
 function Logout() {
-  return <p>Logging out...</p>;
+  return <h1 className="logout-message">Logging out...</h1>;
 }
 
 export { Logout };

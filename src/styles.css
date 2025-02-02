@@ -22,3 +22,8 @@
   color: #5cb85c;
   text-align: center;
 }
+
+.logout-message {
+  text-align: center;
+  margin-top: 2rem;
+}
