@@ -1,6 +1,6 @@
 import { useGetArticles } from "api/hooks/useGetArticleList";
 import { ArticlePreview } from "../../components/ArticlePreview";
-import { ArticleListEmptyState } from "./ArticleListEmptyState";
+import { ArticleListEmptyState } from "components/ArticleListEmptyState";
 
 function GlobalFeedArticleList() {
   const { isPending, isError, data, error } = useGetArticles("/articles");
@@ -14,7 +14,11 @@ function GlobalFeedArticleList() {
   }
 
   if (data.length < 1) {
-    return <ArticleListEmptyState />;
+    return (
+      <ArticleListEmptyState>
+        <p className="no-articles">There are no posts here...</p>;
+      </ArticleListEmptyState>
+    );
   }
 
   return data.map(article => {

@@ -16,6 +16,8 @@ import { NotImplemented } from "features/NotImplemented/NotImplemented";
 import { UserFeedArticleList } from "features/UserFeed/UserFeedArticleList";
 import type { ReactNode } from "react";
 import { useAuth } from "features/Auth/Auth";
+import { ArticleListByAuthor } from "features/Profile/ArticleListByAuthor";
+import { ArticleListByFavourited } from "features/Profile/ArticleListByFavourited";
 
 type ProtectedRouteProps = { children: ReactNode };
 
@@ -61,8 +63,10 @@ function App() {
 
           <Route path="/register" element={<NotImplemented />} />
 
-          <Route path="/profile/:username" element={<Profile />} />
-          <Route path="/profile/:username/favorites" element={<Profile />} />
+          <Route path="/profile/:username" element={<Profile />}>
+            <Route index element={<ArticleListByAuthor />} />
+            <Route path="favourited" element={<ArticleListByFavourited />} />
+          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Route>

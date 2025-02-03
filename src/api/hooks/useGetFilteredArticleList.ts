@@ -2,11 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { apiClient } from "api/apiClient";
 import { ListOfArticlesSchema } from "api/schemas";
 
-function useGetArticleListByAuthor(author: string) {
+type Params = Record<"author", string> | Record<"favorited", string>;
+
+function useGetFilteredArticleList(params: Params) {
   return useQuery({
-    queryKey: ["articles", author],
+    queryKey: ["articles", params],
     queryFn: async () => {
-      const response = await apiClient.get("/articles?author=" + author);
+      const response = await apiClient.get("/articles", { params });
       return response.data;
     },
     select: data => {
@@ -15,4 +17,4 @@ function useGetArticleListByAuthor(author: string) {
   });
 }
 
-export { useGetArticleListByAuthor };
+export { useGetFilteredArticleList };

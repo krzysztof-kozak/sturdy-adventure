@@ -1,6 +1,6 @@
 import { useGetArticles } from "api/hooks/useGetArticleList";
 import { ArticlePreview } from "../../components/ArticlePreview";
-import { ArticleListEmptyState } from "./ArticleListEmptyState";
+import { ArticleListEmptyState } from "components/ArticleListEmptyState";
 
 function UserFeedArticleList() {
   const { isPending, isError, data, error } = useGetArticles("/articles/feed");
@@ -14,7 +14,11 @@ function UserFeedArticleList() {
   }
 
   if (data.length < 1) {
-    return <ArticleListEmptyState />;
+    return (
+      <ArticleListEmptyState>
+        <p className="no-articles">You don't follow any posts yet.</p>
+      </ArticleListEmptyState>
+    );
   }
 
   return data.map(article => {
