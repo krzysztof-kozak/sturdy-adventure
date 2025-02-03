@@ -21,7 +21,7 @@ function ArticleListByFavourited() {
   if (data.length < 1) {
     return (
       <ArticleListEmptyState>
-        <p className="no-articles">{username} has not favourited any articles</p>;
+        <p className="no-articles">{username} has not favourited any articles</p>
       </ArticleListEmptyState>
     );
   }
