@@ -25,6 +25,19 @@ type AuthProviderProps = {
 };
 
 function AuthProvider({ children }: AuthProviderProps) {
+  /*
+  I decided to store JWT in memory. There are tradeofs in doing this
+  It is safer (not vulnerable to XSS) but we lost the token on page refresh.
+
+  If the provided backend API had refresh token I'd probably:
+  - use short lived cookies with HttpOnly and Secure flags for the initial access
+  - request refresh token
+  - consider safety, e.g. set SameSite=Strict
+
+  I'm not that experienced with security and auth so for the purpose of this demo,
+  I found in-memory store of JWT to be the most pragmatic appraoch.
+ */
+
   const [JWT, setJWT] = useState<string>();
 
   const memoizedOnFullfilledRequest = useCallback(
