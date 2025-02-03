@@ -1,9 +1,13 @@
-// import React from "react";
-// import { render, screen } from "@testing-library/react";
-// import App from "./App";
+import { render, screen } from "@testing-library/react";
+import { Footer } from "./components/Footer";
+import { MemoryRouter } from "react-router";
 
-// test("renders conduit link", () => {
-//   render(<App />);
-//   const linkElement = screen.getAllByText(/conduit/i)[0];
-//   expect(linkElement).toBeInTheDocument();
-// });
+it("renders conduit link", () => {
+  render(
+    <MemoryRouter>
+      <Footer />
+    </MemoryRouter>
+  );
+  const linkElement = screen.getAllByText(/conduit/i)[0];
+  expect(linkElement).toBeInTheDocument();
+});
