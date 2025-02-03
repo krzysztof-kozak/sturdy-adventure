@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { useAuth } from "features/Auth/Auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { App } from "./App";
-import { http, HttpResponse, server } from "../test/server";
+import { http, HttpResponse, server } from "test/server";
 import type { ListOfArticlesSchema } from "api/schemas";
 import type { z } from "zod";
 
