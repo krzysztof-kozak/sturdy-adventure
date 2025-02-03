@@ -1,14 +1,16 @@
 import { z } from "zod";
 
-const BaseAuthorSchema = z.object({
+const ProfileSchema = z.object({
   username: z.string(),
+  bio: z.string(),
   image: z.string(),
+  following: z.boolean(),
 });
 
 const ArticlePreviewSchema = z.object({
   title: z.string(),
   description: z.string(),
-  author: BaseAuthorSchema,
+  author: ProfileSchema,
   createdAt: z.coerce.date(),
   favoritesCount: z.number(),
   favorited: z.boolean(),
@@ -21,16 +23,10 @@ const ArticleSchema = z.object({
   title: z.string(),
   body: z.string(),
   createdAt: z.coerce.date(),
-  author: BaseAuthorSchema,
+  author: ProfileSchema,
   favoritesCount: z.number(),
   favorited: z.boolean(),
   slug: z.string(),
-});
-
-const ProfileSchema = z.object({
-  username: z.string(),
-  bio: z.string(),
-  image: z.string(),
 });
 
 const UserLoginRequestSchema = z.object({

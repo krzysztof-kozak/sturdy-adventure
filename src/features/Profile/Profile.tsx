@@ -4,15 +4,24 @@ import { useGetProfile } from "api/hooks/useGetProfile";
 import { UsernameQueryParamSchema } from "api/schemas";
 import { UserImage } from "components/UserImage";
 import { Link, Outlet, useLocation, useParams } from "react-router";
+import { useFollowUser } from "api/hooks/useFollowUser";
+import { FollowAuthorButton } from "components/FollowAuthorButton";
 
 function Profile() {
   const params = useParams();
-  const username = UsernameQueryParamSchema.parse(params.username);
-  const { isPending, isError, data, error } = useGetProfile(username);
+  const name = UsernameQueryParamSchema.parse(params.username);
+  const { isPending, isError, data, error } = useGetProfile(name);
 
   const { pathname } = useLocation();
-  const isOnProfileHomePage = pathname === `/profile/${username}`;
-  const isOnProfileFavouritedPage = pathname === `/profile/${username}/favourited`;
+  const isOnProfileHomePage = pathname === `/profile/${name}`;
+  const isOnProfileFavouritedPage = pathname === `/profile/${name}/favourited`;
+
+  const handleFollowUser = useFollowUser();
+
+  function onFollowUserBtnClick() {
+    if (!data) return;
+    handleFollowUser({ username: data.username, action: data.following ? "unfollow" : "follow" });
+  }
 
   if (isPending) {
     return <p>Loading...</p>;
@@ -33,10 +42,7 @@ function Profile() {
               </UserImage>
               <h4>{data.username}</h4>
               <p>{data.bio}</p>
-              <button className="btn btn-sm btn-outline-secondary action-btn">
-                <i className="ion-plus-round" />
-                &nbsp; Follow {data.username}
-              </button>
+              <FollowAuthorButton name={data.username} following={data.following} onClick={onFollowUserBtnClick} />
             </div>
           </div>
         </div>
@@ -48,16 +54,16 @@ function Profile() {
             <div className="articles-toggle">
               <ul className="nav nav-pills outline-active">
                 <li className="nav-item">
-                  <Link className={clsx("nav-link", { active: isOnProfileHomePage })} to={`/profile/${username}`}>
-                    {username}'s Articles
+                  <Link className={clsx("nav-link", { active: isOnProfileHomePage })} to={`/profile/${data.username}`}>
+                    {data.username}'s Articles
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
                     className={clsx("nav-link", { active: isOnProfileFavouritedPage })}
-                    to={`/profile/${username}/favourited`}
+                    to={`/profile/${data.username}/favourited`}
                   >
-                    {username}'s Favorited Articles
+                    {data.username}'s Favorited Articles
                   </Link>
                 </li>
               </ul>
