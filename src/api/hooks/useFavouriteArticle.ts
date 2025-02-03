@@ -1,14 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiClient } from "api/apiClient";
-import { ArticleSchema } from "api/schemas";
 import type { AxiosError, AxiosResponse } from "axios";
 import { useAuth } from "features/Auth/Auth";
-import { z } from "zod";
 
 type RequestVariables = { slug: string; action: "favourite" | "unfavourite" };
 type Response = AxiosResponse<unknown>;
-
-const ApiResponseParser = z.object({ article: ArticleSchema });
 
 function useFavouriteArticle() {
   const queryClient = useQueryClient();
@@ -24,10 +20,9 @@ function useFavouriteArticle() {
       return apiClient.delete(`/articles/${slug}/favorite`);
     },
 
-    onSuccess: ({ data }) => {
-      const parsedResponse = ApiResponseParser.parse(data);
+    onSuccess: (_data, variables) => {
       queryClient.invalidateQueries({ queryKey: ["articles"] });
-      queryClient.invalidateQueries({ queryKey: ["article", parsedResponse.article.slug] });
+      queryClient.invalidateQueries({ queryKey: ["article", variables.slug] });
     },
 
     // TODO: add optimistic UI updates
