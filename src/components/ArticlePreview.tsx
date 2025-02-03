@@ -1,13 +1,31 @@
-import type { ArticlePreviewSchema } from "api/schemas";
-
-import { Link } from "react-router";
 import type { z } from "zod";
+import type { ArticlePreviewSchema } from "api/schemas";
+import { Link } from "react-router";
 import { UserImage } from "components/UserImage";
 import { formatDate } from "utility/formatDate";
+import { useAuth } from "features/Auth/Auth";
+import { clsx } from "clsx";
+
+import { useFavouriteArticle } from "api/hooks/useFavouriteArticle";
 
 type ArticlePreviewProps = z.infer<typeof ArticlePreviewSchema>;
 
-function ArticlePreview({ title, description, author, createdAt, favoritesCount, slug }: ArticlePreviewProps) {
+function ArticlePreview({
+  title,
+  description,
+  author,
+  createdAt,
+  favoritesCount,
+  favorited,
+  slug,
+}: ArticlePreviewProps) {
+  const { isAuthenticated } = useAuth();
+  const handleFollow = useFavouriteArticle();
+
+  function onClick() {
+    handleFollow({ slug, action: favorited ? "unfavourite" : "favourite" });
+  }
+
   return (
     <div className="article-preview">
       <div className="article-meta">
@@ -24,7 +42,13 @@ function ArticlePreview({ title, description, author, createdAt, favoritesCount,
           <span className="date">{formatDate(createdAt)}</span>
         </div>
 
-        <button className="btn btn-outline-primary btn-sm pull-xs-right">
+        <button
+          className={clsx("btn btn-outline-primary btn-sm pull-xs-right", {
+            active: favorited,
+            disabled: !isAuthenticated,
+          })}
+          onClick={onClick}
+        >
           <i className="ion-heart" /> {favoritesCount}
         </button>
       </div>

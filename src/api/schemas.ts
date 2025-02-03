@@ -11,6 +11,7 @@ const ArticlePreviewSchema = z.object({
   author: BaseAuthorSchema,
   createdAt: z.coerce.date(),
   favoritesCount: z.number(),
+  favorited: z.boolean(),
   slug: z.string(),
 });
 
@@ -22,6 +23,8 @@ const ArticleSchema = z.object({
   createdAt: z.coerce.date(),
   author: BaseAuthorSchema,
   favoritesCount: z.number(),
+  favorited: z.boolean(),
+  slug: z.string(),
 });
 
 const ProfileSchema = z.object({
